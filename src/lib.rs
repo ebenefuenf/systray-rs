@@ -81,7 +81,7 @@ impl Application {
         }
     }
 
-    pub fn add_menu_item<F, E>(&mut self, item_name: &str, f: F) -> Result<u32, Error>
+    pub fn add_menu_item<F, E>(&mut self, item_name: &'static str, f: F) -> Result<u32, Error>
     where
         F: FnMut(&mut Application) -> Result<(), E> + Send + Sync + 'static,
         E: error::Error + Send + Sync + 'static,
